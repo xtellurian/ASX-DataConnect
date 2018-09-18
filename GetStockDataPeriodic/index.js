@@ -1,7 +1,7 @@
 const getCodes = require("../src/codes");
 const getAsxDataAsync = require("../src/stock");
 
-module.exports = async function (context, myTimer) {
+module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
     
     if(myTimer.isPastDue)
