@@ -8,10 +8,10 @@
       "schedule": "0 */1 * * * *"
     },
     {
-      "type": "eventHub",
-      "name": "outputHub",
-      "connection": "stockdata_RootManageSharedAccessKey_EVENTHUB",
-      "eventHubName": "asx",
+      "type": "blob",
+      "name": "outputBlob",
+      "path": "asx-archive/basic/{timerTrigger}",
+      "connection": "AzureWebJobsStorage",
       "direction": "out"
     }
   ]
