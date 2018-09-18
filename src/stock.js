@@ -9,9 +9,10 @@ async function returnAsxDataAsync (context, codes, callback ) {
         if (c && c.code && c.code !== "") {
             var res = await request(`https://www.asx.com.au/asx/1/share/${c.code}`);
             if(res.statusCode == 200) {
-                var x = JSON.parse(res.body);
-                // console.log(`Got data for code ${x.code}`);
-                return x;
+                var ticker = JSON.parse(res.body);
+                ticker.timestamp = new Date();
+                // console.log(`Got data for code ${ticker.code}`);
+                return ticker;
 
             } else {
                 context.log(`There was an error getting code ${c.code}`);
