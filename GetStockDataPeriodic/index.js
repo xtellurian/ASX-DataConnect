@@ -1,5 +1,5 @@
 const getCodes = require("../src/codes");
-const getAsxDataAsync = require("../src/stock");
+const returnAsxDataAsync = require("../src/stock");
 
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
@@ -10,18 +10,18 @@ module.exports = function (context, myTimer) {
     }
     context.log('JavaScript timer trigger function ran!', timeStamp);   
 
-    getCodes().then(async codes => {
+    getCodes(context).then(async codes => {
         
-        await getAsxDataAsync(codes, (results) => {
+        await returnAsxDataAsync(context, codes, (results) => {
             //do something
             context.bindings.outputBlob = results;
-            console.log("done");
+            context.log("done");
             context.done();
         });
 
     }).catch(err => {
-        console.log("Error Getting Codes");
-        console.log(err);
+        context.log("Error Getting Codes");
+        context.log(err);
     });
 
 };

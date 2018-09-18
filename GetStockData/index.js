@@ -3,9 +3,9 @@ const returnAsxDataAsync = require("../src/stock");
 
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
-    getCodes().then(async codes => {
+    getCodes(context).then(async codes => {
 
-        await returnAsxDataAsync( codes, (results) => {
+        await returnAsxDataAsync( context, codes, (results) => {
             context.res = {
                 status: 200,
                 body: results
@@ -15,8 +15,8 @@ module.exports = function (context, req) {
         });
 
     }).catch(err => {
-        console.log("Error Getting Codes");
-        console.log(err);
+        context.log("Error Getting Codes");
+        context.log(err);
     });
 
 };

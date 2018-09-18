@@ -3,7 +3,7 @@ const asyncLib = require("async");
 
 module.exports = returnAsxDataAsync;
 
-async function returnAsxDataAsync (codes, callback ) {
+async function returnAsxDataAsync (context, codes, callback ) {
     asyncLib.mapLimit(codes, 50, async (c) => {
         // console.log(`GET data for ${c.name}, code: ${c.code}`)
         if (c && c.code && c.code !== "") {
@@ -14,14 +14,13 @@ async function returnAsxDataAsync (codes, callback ) {
                 return x;
 
             } else {
-                console.log(`There was an error getting code ${c.code}`);
-                console.log(res.body);
+                context.log(`There was an error getting code ${c.code}`);
             }
         }
     }, (err, results) => {
-        console.log("Finished");
+        context.log("Finished");
         results = results.filter(n=>n); // filter null values
-        console.log(`There are ${results.length} results`);
+        context.log(`There are ${results.length} results`);
         
         callback(results);
     });
