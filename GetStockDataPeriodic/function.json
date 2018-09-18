@@ -1,0 +1,18 @@
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */1 * * * *"
+    },
+    {
+      "type": "eventHub",
+      "name": "outputHub",
+      "connection": "stockdata_RootManageSharedAccessKey_EVENTHUB",
+      "eventHubName": "asx",
+      "direction": "out"
+    }
+  ]
+}
