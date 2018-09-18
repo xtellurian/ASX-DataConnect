@@ -10,7 +10,7 @@
     {
       "type": "blob",
       "name": "outputBlob",
-      "path": "asx-archive/basic/{timerTrigger}",
+      "path": "asx-archive/basic/{timerTrigger}.json",
       "connection": "AzureWebJobsStorage",
       "direction": "out"
     }
