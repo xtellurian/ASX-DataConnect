@@ -4,9 +4,10 @@
   "description": "Azure functions that get ASX data",
   "main": "index.js",
   "dependencies": {
-    "async": "^2.6.1",
-    "async-request": "^1.2.0",
-    "request": "^2.88.0"
+    "async": "2.6.1",
+    "async-request": "1.2.0",
+    "request": "2.88.0",
+    "lodash": "4.17.5"
   },
   "devDependencies": {},
   "scripts": {
