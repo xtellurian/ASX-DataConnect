@@ -15,6 +15,7 @@ module.exports = function (context, myTimer) {
         await returnAsxDataAsync(context, codes, (results) => {
             //do something
             context.bindings.outputBlob = results;
+            context.bindings.outputHub = results;
             context.log("done");
             context.done();
         });

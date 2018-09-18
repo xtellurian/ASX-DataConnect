@@ -13,6 +13,13 @@
       "path": "asx-archive/basic/{timerTrigger}.json",
       "connection": "AzureWebJobsStorage",
       "direction": "out"
+    },
+    {
+      "type": "eventHub",
+      "name": "outputHub",
+      "connection": "stockdata_RootManageSharedAccessKey_EVENTHUB",
+      "eventHubName": "asx",
+      "direction": "out"
     }
   ]
 }
